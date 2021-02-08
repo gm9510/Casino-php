@@ -2,29 +2,38 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
+{% set colores = { r: 'Rojo', b: 'Negro', g: 'Verde' } %}
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
 <div class="example-wrapper">
-    <h1>Wellcome to casino home ✅</h1>
+    <h1> Bienvenido al Casino Ruleta</h1>
 
-    Casino <a href="{{ path('home') }}"> Play </a>
-    <a href="{{ path('player_index') }}">back to list</a>
+    $Ruleta-><a href="{{ path('home') }}"> Girar() </a>
     <ul>
-        <li>Generating Random number: {{ color }} </li>
+        <li>
+            El color ganador es  
+            {% for k,v in colores|filter( (v,k) => k == color) %}
+                {{ v }} 
+            {% endfor %}
+        </li>
         {% for player in players %}
-        <li>{{ player.name }}</li>
-        <ul>
-            <li> Dinero: ${{ player.money }}</li>
-            <li> Apuesta: {{ player.bet }}</li>
-            <li>al Color: {{ player.color }}</li>
-        </ul>
+        <li>
+            El jugador {{ player.name }} inicia con 
+            {% for k,v in basemoney|filter((v,k) => k == player.id) %} 
+                ${{v}} 
+            {% endfor %},  
+            Apuesta ${{ player.bet }} al Color
+            {% for k,v in colores|filter( (v,k) => k == player.color) %}
+                {{ v }}. 
+            {% endfor %}
+            <br>
+            Dinero total despúes de la ronda: ${{player.money}}.
+        </li>
         {% else %}
         <li>No players registered</li>
         {% endfor %}
     </ul>
+    <a href="{{ path('player_index') }}">Lista de Jugadores</a>
 </div>
 {% endblock %}
