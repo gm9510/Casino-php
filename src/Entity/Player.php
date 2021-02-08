@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Util\Roulette; 
 use App\Repository\PlayerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -70,11 +71,8 @@ class Player
     }
 
     public function pickColor(){
-        $num = random_int(1,100);
-
-        if($num < 50) $this->color = 'r';
-        else if($num <= 98) $this->color = 'b';
-        else $this->color = 'g';
+        $roulette = new Roulette;
+        $this->color = $roulette->random_color();
     }
 
     public function win( string $color ){
