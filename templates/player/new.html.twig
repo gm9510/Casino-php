@@ -3,9 +3,11 @@
 {% block title %}New Player{% endblock %}
 
 {% block body %}
+<div class="example-wrapper">
     <h1>Create new Player</h1>
 
     {{ include('player/_form.html.twig') }}
 
     <a href="{{ path('player_index') }}">back to list</a>
+</div>
 {% endblock %}

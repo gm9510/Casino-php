@@ -3,11 +3,12 @@
 {% block title %}Edit Player{% endblock %}
 
 {% block body %}
-    <h1>Edit Player</h1>
-
+<div class="example-wrapper">
+    <h1>Editar Jugador</h1>
+    <h3>{{ player.name }}</h3>
     {{ include('player/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('player_index') }}">back to list</a>
-
     {{ include('player/_delete_form.html.twig') }}
+    <a href="{{ path('player_index') }}">back to list</a>
+</div>
 {% endblock %}

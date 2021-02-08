@@ -3,35 +3,37 @@
 {% block title %}Player index{% endblock %}
 
 {% block body %}
-    <h1>Player index</h1>
+    <div class="example-wrapper">
+        <h1>Indice de jugadores</h1>
+        <a href="{{ path('home') }}"> Jugar Ruleta </a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Dinero</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player.id }}</td>
+                    <td>{{ player.Name }}</td>
+                    <td>{{ player.Money }}</td>
+                    <td>
+                        <a href="{{ path('player_show', {'id': player.id}) }}">ver</a>
+                        <a href="{{ path('player_edit', {'id': player.id}) }}">editar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No hay jugadores registrados</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('player_new') }}">Añadir jugador</a>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Money</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for player in players %}
-            <tr>
-                <td>{{ player.id }}</td>
-                <td>{{ player.Name }}</td>
-                <td>{{ player.Money }}</td>
-                <td>
-                    <a href="{{ path('player_show', {'id': player.id}) }}">show</a>
-                    <a href="{{ path('player_edit', {'id': player.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('player_new') }}">Create new</a>
 {% endblock %}
