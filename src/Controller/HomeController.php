@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Player;
+use App\Util\Roulette; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,26 +14,18 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index( EntityManagerInterface $entityManager ): Response
+    public function index( EntityManagerInterface $entityManager, Roulette $roulette ): Response
     {
         $players = $entityManager->getRepository( Player::class )->findAll();
+
+        $baseMoney = [];// Money per player before the game starts
         foreach( $players as $player ){
+            $baseMoney[$player->getId()] = "{$player->getMoney()}";
             $player->pickBet();
             $player->pickColor();
         }
 
-        // Assuming that random_init() provides a uniform distribution
-        $casinoColor = '';
-        $num = random_int(1,100);
-        if($num < 50){
-            $casinoColor = 'r';
-        }
-        else if($num <= 98){
-            $casinoColor = 'b';
-        }
-        else{
-            $casinoColor = 'g';
-        }
+        $casinoColor = $roulette->random_color();
 
         foreach( $players as $player ){
             if ( $casinoColor === $player->color ) $player->win( $casinoColor );
@@ -42,7 +35,8 @@ class HomeController extends AbstractController
         $entityManager->flush();
 
         return $this->render('home/index.html.twig', [
-            'players'=> $players,
+            'players' => $players,
+            'basemoney' => $baseMoney,
             'color' => $casinoColor
         ]);
     }
