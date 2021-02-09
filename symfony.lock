@@ -1,7 +1,4 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.1"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -32,7 +29,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "2.0",
-            "ref": "368794356c1fb634e58b38ad2addb36933f2e73e"
+            "ref": "40631978d2c4adc9b11220b13eba539b727c36a8"
         },
         "files": [
             "config/packages/doctrine.yaml",
@@ -67,7 +64,7 @@
         "version": "1.2.1"
     },
     "doctrine/migrations": {
-        "version": "3.0.2"
+        "version": "3.1.0"
     },
     "doctrine/orm": {
         "version": "2.8.1"
@@ -176,9 +173,6 @@
         "files": [
             "config/packages/dev/debug.yaml"
         ]
-    },
-    "symfony/debug-pack": {
-        "version": "v1.0.9"
     },
     "symfony/dependency-injection": {
         "version": "v5.2.3"
@@ -320,9 +314,6 @@
     "symfony/options-resolver": {
         "version": "v5.2.3"
     },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
-    },
     "symfony/phpunit-bridge": {
         "version": "5.1",
         "recipe": {
@@ -361,9 +352,6 @@
     },
     "symfony/process": {
         "version": "v5.2.3"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.5"
     },
     "symfony/property-access": {
         "version": "v5.2.3"
@@ -415,9 +403,6 @@
     "symfony/serializer": {
         "version": "v5.2.3"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.4"
-    },
     "symfony/service-contracts": {
         "version": "v2.2.0"
     },
@@ -426,9 +411,6 @@
     },
     "symfony/string": {
         "version": "v5.2.3"
-    },
-    "symfony/test-pack": {
-        "version": "v1.0.7"
     },
     "symfony/translation": {
         "version": "3.3",
@@ -462,9 +444,6 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
-    },
-    "symfony/twig-pack": {
-        "version": "v1.0.1"
     },
     "symfony/validator": {
         "version": "4.3",
@@ -506,10 +485,10 @@
         "version": "v5.2.3"
     },
     "twig/extra-bundle": {
-        "version": "v3.2.1"
+        "version": "v3.3.0"
     },
     "twig/twig": {
-        "version": "v3.2.1"
+        "version": "v3.3.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"
