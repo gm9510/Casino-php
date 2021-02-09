@@ -20,21 +20,21 @@ $ cd Casino-php/
 ```
 
 
-2. Instalar librerias con Composer
+2. Instalar librerías con Composer
 ```bash
-/Casino-php$ Composer install
+/Casino-php$ composer install
 ```
 
-3.Conectar con la base de datos:
+3. Conectar con la base de datos:
 
-Para esto podemos modificar el archivo `.env` o crear el archivo `.env.local` aquí configuramos el entorno. Agregamos la siguiente linea con la información de la base de datos respectiva.
+Para esto podemos modificar el archivo `.env` o crear el archivo `.env.local` aquí configuramos el entorno. Agregamos la siguiente línea con la información de la base de datos respectiva.
 
 ```bash
 # Casino-PHP/.env.local
 DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=13&charset=utf8"
 ```
 
-4.Migración de datos
+4. Migración de datos
 
 Migramos la información de las tablas a la base de datos con el comando
 
@@ -44,7 +44,7 @@ Migramos la información de las tablas a la base de datos con el comando
 
 5. Servidor 
 
-En el caso de Symfony + Apache2, se debe configurar la raiz de la Webapp en el directorio public, a continuación la configuración de apache en la que se construyó esta Webapp
+En el caso de Symfony + Apache2, se debe configurar la raíz de la Webapp en el directorio public, a continuación la configuración de apache en la que se construyó esta Webapp
 
 ```apache
 <VirtualHost *:8080>
@@ -60,6 +60,12 @@ En el caso de Symfony + Apache2, se debe configurar la raiz de la Webapp en el d
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
+```
+
+Tambien es posible lanzar un servidor local con el comando
+
+```bash
+/Casino-php/public$ php -S localhost:3000
 ```
 
 ## Heroku
