@@ -1,1 +1,1 @@
-web: heroku-php-apache2 FallbackResource /index.php  public/
+web: heroku-php-apache2  public/
