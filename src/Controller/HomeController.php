@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route ("/", name="home")
      */
     public function index( EntityManagerInterface $entityManager, Roulette $roulette ): Response
     {
